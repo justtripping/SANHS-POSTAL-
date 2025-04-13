@@ -1,13 +1,14 @@
 <?php
-$host = "localhost";
-$dbname = "attsystem";
-$username = "root";
-$password = "";
+$host = "localhost";     // Database host
+$user = "root";          // Database username
+$password = "";          // Database password
+$database = "attsystem";   // Database name
 
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+// Create connection
+$conn = mysqli_connect($host, $user, $password, $database);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
